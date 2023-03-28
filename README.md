@@ -1,10 +1,8 @@
-# 🏁 Entrega - POO: Banco com classes
+#  Banco com classes
 
-Nesta entrega vamos trabalhar construindo as clases `Pessoa`, `Empresa`, `Cliente` e `Transacao`, com o objetivo de simular o funcionamento de um banco, onde será feito pagamentos de salário e contas, depósitos e transferências.
+Classe `Cliente`
 
-Para iniciar vamos construir a classe `Cliente`
-
-A classe `Cliente` deve possuir os seguintes parâmetros em seu constructor:
+A classe `Cliente` deve possui os seguintes parâmetros em seu constructor:
 
 - **idCliente:** string
 - **tipoCliente:** string
@@ -15,7 +13,7 @@ A classe `Cliente` deve possuir os seguintes parâmetros em seu constructor:
 - **saldo:** number
 - E terá o **historico** que será um parâmetro definido no constructor inicando como uma array vazia
 
-Agora vamos criar a classe `Pessoa`, está classe será uma extensão da classe `Cliente` heardando todos os seus atributos e recebendo mais alguns que são:
+Classe `Pessoa`, está classe é uma extensão da classe `Cliente` heardando todos os seus atributos e recebendo mais alguns que são:
 
 - **nome:** string
 - **cpf:** string
@@ -23,7 +21,7 @@ Agora vamos criar a classe `Pessoa`, está classe será uma extensão da classe 
 - **telefone:** number
 - **dataDeNascimento:** string
 
-Agora devemos construir a classe `Empresa` que também será um extensão da classe `Cliente` herdando todos os seus atributos e recebendo alguns novos:
+Classe `Empresa` que também é um extensão da classe `Cliente` herdando todos os seus atributos e recebendo alguns novos:
 
 - **nomeFantasia:** string
 - **cnpj:** string
@@ -31,11 +29,11 @@ Agora devemos construir a classe `Empresa` que também será um extensão da cla
 - **telefone:** number
 - **dataDaFundacao:** string
 
-E por ultimo vamos construir a classe `Transacao` que será uma **classe estática** ou seja não receberá **nenhum parâmetro pelo constructor** e terá **todos seus métodos como estático**. Está classe será responsável por realizar todas as operações de pagamentos, depósitos, transferências e registro do histórico essas operações acontecendo por meio dos métodos abaixo:
+Classe `Transacao` que é uma **classe estática** ou seja não recebe **nenhum parâmetro pelo constructor** e tem **todos seus métodos como estático**. Está classe é responsável por realizar todas as operações de pagamentos, depósitos, transferências e registro do histórico essas operações acontecendo por meio dos métodos abaixo:
 
 Método estático `transferencia`:
 
-Este método irá receber por parâmetro:
+Este método recebe por parâmetro:
 
 - **contaOrigem:** Class (Podendo ser uma classe Empresa ou Pessoa)
 - **contaDestino:** Class (Podendo ser uma classe Empresa ou Pessoa)
@@ -43,8 +41,8 @@ Este método irá receber por parâmetro:
 - **dataDeTransacao**: string
 - **valorDaTransferencia**: number
 
-- Em sequência deve validar se a **contaOrigem** possui um **saldo** maior ou igual ao de **valorDaTransferencia**.
-- Caso o **saldo** sejá maior deve adicionar no **histórico** da **contaOrigem** o objeto:
+- Em sequência valida se a **contaOrigem** possui um **saldo** maior ou igual ao de **valorDaTransferencia**.
+- Caso o **saldo** sejá maior adiciona no **histórico** da **contaOrigem** o objeto:
 
 ```javascript
 {
@@ -74,7 +72,7 @@ Este método irá receber por parâmetro:
 }
 ```
 
-- Caso o **saldo** seja menor que o **valorDaTransferencia** deve retornar a mensagem:
+- Caso o **saldo** seja menor que o **valorDaTransferencia** retorna a mensagem:
 
 ```javascript
 {
@@ -84,15 +82,15 @@ Este método irá receber por parâmetro:
 
 Método estático `deposito`:
 
-O método deposito irá receber por parâmetro:
+O método deposito recebe por parâmetro:
 
 - **contaDestino:** Class (Podendo ser uma classe Empresa ou Pessoa)
 - **idDeposito**: number
 - **dataDoDeposito**: string
 - **valorDoDeposito**: number
 
-- Deve adicionar ao **saldo** da **contaDestino** o **valorDoDeposito**
-- E adicionar ao **historico** da **contaDestino** o objeto:
+- Adiciona ao **saldo** da **contaDestino** o **valorDoDeposito**
+- E Adiciona ao **historico** da **contaDestino** o objeto:
 
 ```javascript
 {
@@ -103,7 +101,7 @@ O método deposito irá receber por parâmetro:
 }
 ```
 
-- E retorne a mensagem:
+- Retorna a mensagem:
 
 ```javascript
 {
@@ -113,7 +111,7 @@ O método deposito irá receber por parâmetro:
 
 Método estático `pagamentoSalario`:
 
-O método pagamentoSalario irá receber por parâmetro:
+O método pagamentoSalario recebe por parâmetro:
 
 - **contaOrigem:** Class (Podendo ser uma classe Empresa ou Pessoa)
 - **contaDestino:** Class (Podendo ser uma classe Empresa ou Pessoa)
@@ -121,7 +119,7 @@ O método pagamentoSalario irá receber por parâmetro:
 - **dataDoPagamento**: string
 - **valorDoSalario**: number
 
-- Deve verificar se a **contaOrigem** é uma instância da classe **Pessoa** caso seja o **valorDoSalario** não pode ser maior 1000. Caso não passe nesta validação deve retornar a mensagem:
+- Verifica se a **contaOrigem** é uma instância da classe **Pessoa** caso seja o **valorDoSalario** não pode ser maior 1000. Caso não passe nesta validação retorna a mensagem:
 
 ```javascript
 {
@@ -129,9 +127,9 @@ O método pagamentoSalario irá receber por parâmetro:
 }
 ```
 
-- Deve verificar se a **contaOrigem** tem o **valor** maior ou igual ao **valorDoSalario**.
-- Caso a validação seja verdeira deve adicionar ao **saldo** da **contaDestino** o **valorDoSalario** e remover do **saldo** da **contaOrigem**
-- Caso a validação seja verdadeira deve adicionar ao **historico** da **contaDestino** o objeto:
+- Verifica se a **contaOrigem** tem o **valor** maior ou igual ao **valorDoSalario**.
+- Caso a validação seja verdeira adiciona ao **saldo** da **contaDestino** o **valorDoSalario** e remove do **saldo** da **contaOrigem**
+- Caso a validação seja verdadeira adiciona ao **historico** da **contaDestino** o objeto:
 
 ```javascript
 {
@@ -154,7 +152,7 @@ O método pagamentoSalario irá receber por parâmetro:
 }
 ```
 
-- E retorne a mensagem:
+- E retorna a mensagem:
 
 ```javascript
 {
@@ -162,7 +160,7 @@ O método pagamentoSalario irá receber por parâmetro:
 }
 ```
 
-- Caso o não passe na validação retorne a mensagem:
+- Caso o não passe na validação retorna a mensagem:
 
 ```javascript
 {
@@ -172,7 +170,7 @@ O método pagamentoSalario irá receber por parâmetro:
 
 ## Teste
 
-Insira o seguinte código no final do seu programa para verificar se ele está funcionando apropriadamente. **Atenção** (Não modifique este código!
+Insira o seguinte código no final do programa para verificar se ele está funcionando apropriadamente. **Atenção** (Não modifique este código!
 
 ```javascript
 const ChurrosVictor = new Empresa(
@@ -253,7 +251,3 @@ console.log(Maria.saldo); // Deve retornar 4100
 console.log(Maria.historico); // Deve retornar [{idPagamento: 6, dataDoPagamento: "22/12/2022", valorDaSalario: 900, tipo: "pagamento"}]
 console.log(Joao.historico[1]); // Deve retornar [{idPagamento: 6, dataDoPagamento: "22/12/2022", valorDaSalario: 900, tipo: "recebimento"}]
 ```
-
-## Envio
-
-Faça o push do código para o seu repositório GitHub e implemente-o GitHub pages. Coloque seu repositório como **Privado** e adicione em **Configurações > Colaboradores e Times**, o time **team-m2-correcoes**. No Canvas, por favor, envie sua url do GitHub Pages: (ex: https://nomedeusuario.github.io/oregon-trail-inheritance) e envie o link do seu repositório nos comentários.
